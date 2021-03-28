@@ -1,6 +1,6 @@
 package com.example.handlingformsubmission;
 
-import static software.amazon.awssdk.enhanced.dynamodb.mapper.StaticAttributeTags.primaryPartitionKey;
+import org.springframework.stereotype.Component;
 import software.amazon.awssdk.auth.credentials.EnvironmentVariableCredentialsProvider;
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient;
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbTable;
@@ -10,7 +10,8 @@ import software.amazon.awssdk.enhanced.dynamodb.model.PutItemEnhancedRequest;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 import software.amazon.awssdk.services.dynamodb.model.ProvisionedThroughput;
-import org.springframework.stereotype.Component;
+
+import static software.amazon.awssdk.enhanced.dynamodb.mapper.StaticAttributeTags.primaryPartitionKey;
 
 @Component("DynamoDBEnhanced")
 public class DynamoDBEnhanced {
@@ -70,51 +71,6 @@ public class DynamoDBEnhanced {
 
         } catch (Exception e) {
             e.getStackTrace();
-        }
-    }
-
-    public class GreetingItems {
-
-        // Set up data members that correspond to columns in the Work table
-        private String id;
-        private String name;
-        private String message;
-        private String title;
-
-        public GreetingItems()
-        {
-        }
-
-        public String getId() {
-            return this.id;
-        }
-
-        public void setId(String id) {
-            this.id = id;
-        }
-
-        public String getName() {
-            return this.name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getMessage(){
-            return this.message;
-        }
-
-        public void setMessage(String message){
-            this.message = message;
-        }
-
-        public String getTitle() {
-            return this.title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
         }
     }
 }
